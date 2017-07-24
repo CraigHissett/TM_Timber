@@ -12,7 +12,7 @@ GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 #This function will run when the button is triggered
 def EmailFunction(BinNo):
   print(“Button Triggered - Bin is full!”)
-  SendEmail("craighissett@gmail.com", 'Bin ' + str(BinNo) + ' is full', "Please proceed")
+  SendEmail("craighissett@gmail.com", 'BIN ' + str(BinNo) + ' FULL - PLEASE COLLECT', "")
   print("Trigger 10min delay")
   time.sleep(10)
   

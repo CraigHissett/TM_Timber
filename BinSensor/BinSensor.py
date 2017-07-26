@@ -2,7 +2,7 @@
 
 import RPi.GPIO as GPIO
 import time
-from Email import*
+from Email import SendMail
 
 GPIO.setmode(GPIO.BOARD)
 
@@ -12,13 +12,13 @@ GPIO.setup(16, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
 #This function will run when the button is triggered
-def Email1():
+def Email1(self):
         print ('Button Triggered - Bin 1 full!')
         SendEmail("craighissett@gmail.com", 'BIN 1 FULL - PLEASE COLLECT', "")
         print ('Trigger 10min delay')
         time.sleep(10)
 
-def Email2():
+def Email2(self):
         print ('Button Triggered - Bin 2 full!')
         SendEmail("craighissett@gmail.com", 'BIN 2 FULL - PLEASE COLLECT', "")
         print ('Trigger 10min delay')
@@ -26,5 +26,9 @@ def Email2():
 
 GPIO.add_event_detect(16, GPIO.RISING, callback=Email1, bouncetime=300)
 GPIO.add_event_detect(18, GPIO.RISING, callback=Email2, bouncetime=300)
+
+while True:
+        #print('Looping')
+        time.sleep(1)
 
 GPIO.cleanup()

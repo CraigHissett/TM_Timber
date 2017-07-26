@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO
 import time
 from lcd import *
-from Email import SendMail
+from Email import *
 
 GPIO.setmode(GPIO.BOARD)
 

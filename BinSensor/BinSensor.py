@@ -5,6 +5,7 @@ import time
 from lcd import *
 from Email import *
 
+lcd_init ()
 GPIO.setmode(GPIO.BOARD)
 
 #Switch for Bin 1 to be connected to pin 16 and 3.3v pin

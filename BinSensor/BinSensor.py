@@ -13,12 +13,12 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(16, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
-lcd_string("Bin Sensor Alerts",LCD_LINE_1)
+lcd_string("    Dust-O-Matic    ",LCD_LINE_1)
 
 #This function will run when the button is triggered
 def Email1(self):
         #print ('Button Triggered - Bin 1 full!')
-        lcd_string('Bin #1 FULL',LCD_LINE_2)
+        lcd_string('Bin #1 FULL   ',LCD_LINE_2)
         SendEmail("craighissett@gmail.com", 'BIN 1 FULL - PLEASE COLLECT', "")
         #print ('Trigger 10min delay')
         time.sleep(10)
@@ -26,7 +26,7 @@ def Email1(self):
         time.sleep(10)
         
 def Email2(self):
-        lcd_string('Bin #2 FULL',LCD_LINE_2)
+        lcd_string('Bin #2 FULL   ',LCD_LINE_2)
         SendEmail("craighissett@gmail.com", 'BIN 2 FULL - PLEASE COLLECT', "")
         time.sleep(10)
         lcd_string('Bin #1 Filling',LCD_LINE_2)

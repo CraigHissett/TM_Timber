@@ -4,6 +4,9 @@ import RPi.GPIO as GPIO
 import time
 from lcd import *
 from Email import *
+import sys
+sys.path.insert(0, '/home/pi')
+from credentials import *
 
 lcd_init ()
 GPIO.setmode(GPIO.BOARD)
@@ -18,18 +21,18 @@ lcd_string("    Dust-O-Matic    ",LCD_LINE_1)
 #This function will run when the button is triggered
 def Email1(self):
         #print ('Button Triggered - Bin 1 full!')
-        lcd_string('Bin #1 FULL   ',LCD_LINE_2)
+        lcd_string('    Bin #1 FULL     ',LCD_LINE_2)
         SendEmail("craighissett@gmail.com", 'BIN 1 FULL - PLEASE COLLECT', "")
         #print ('Trigger 10min delay')
         time.sleep(10)
-        lcd_string('Bin #2 Filling',LCD_LINE_2)
+        lcd_string('   Bin #2 Filling   ',LCD_LINE_2)
         time.sleep(10)
         
 def Email2(self):
-        lcd_string('Bin #2 FULL   ',LCD_LINE_2)
+        lcd_string('    Bin #2 FULL     ',LCD_LINE_2)
         SendEmail("craighissett@gmail.com", 'BIN 2 FULL - PLEASE COLLECT', "")
         time.sleep(10)
-        lcd_string('Bin #1 Filling',LCD_LINE_2)
+        lcd_string('   Bin #1 Filling   ',LCD_LINE_2)
         time.sleep(10)
 
 GPIO.add_event_detect(16, GPIO.RISING, callback=Email1, bouncetime=300)

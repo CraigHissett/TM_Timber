@@ -4,9 +4,6 @@ import RPi.GPIO as GPIO
 import time
 from lcd import *
 from Email import *
-import sys
-sys.path.insert(0, '/home/pi')
-from credentials import *
 
 lcd_init ()
 GPIO.setmode(GPIO.BOARD)

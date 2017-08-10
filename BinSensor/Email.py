@@ -1,12 +1,13 @@
 def SendEmail(recipient, subject, body):
     import smtplib
     import sys
+    #sys.path. insert (0, 'Add\\windows path alternative')
     sys.path.insert(0, '/home/pi')
-    from credentials import *
+    Import credentials
 
-    gmail_user = GetUserEmail()
-    gmail_pwd = GetUserPW()
-    FROM = GetUser()
+    gmail_user = credentials.GetUserEmail()
+    gmail_pwd = credentials.GetUserPW()
+    FROM = credentuals.GetUser()
     TO = recipient if type(recipient) is list else [recipient]
     SUBJECT = subject
     TEXT = body

@@ -3,7 +3,7 @@ def SendEmail(recipient, subject, body):
     import sys
     #sys.path. insert (0, 'Add\\windows path alternative')
     sys.path.insert(0, '/home/pi')
-    Import credentials
+    import credentials
 
     gmail_user = credentials.GetUserEmail()
     gmail_pwd = credentials.GetUserPW()

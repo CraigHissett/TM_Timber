@@ -8,8 +8,8 @@ from Email import *
 lcd_init ()
 GPIO.setmode(GPIO.BOARD)
 
-#Switch for Bin 1 to be connected to pin 16 and 3.3v pin
-#Switch for Bin 2 to be connected to pin 18 and 3.3v pin
+#Switch for Bin 1 to be connected to pin 18 and 3.3v pin
+#Switch for Bin 2 to be connected to pin 16 and 3.3v pin
 GPIO.setup(16, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
@@ -32,8 +32,8 @@ def Email2(self):
         lcd_string(' TRAILER #1 Filling ',LCD_LINE_2)
         time.sleep(10)
 
-GPIO.add_event_detect(16, GPIO.RISING, callback=Email1, bouncetime=300)
-GPIO.add_event_detect(18, GPIO.RISING, callback=Email2, bouncetime=300)
+GPIO.add_event_detect(18, GPIO.RISING, callback=Email1, bouncetime=300)
+GPIO.add_event_detect(16, GPIO.RISING, callback=Email2, bouncetime=300)
 
 while True:
         #print('Looping')

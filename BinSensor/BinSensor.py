@@ -19,7 +19,7 @@ lcd_string("    Dust-O-Matic    ",LCD_LINE_1)
 def Email1(self):
         #print ('Button Triggered - Bin 1 full!')
         lcd_string('  TRAILER #1 FULL   ',LCD_LINE_2)
-        SendEmail("craighissett@gmail.com", 'TRAILER 1 FULL - PLEASE COLLECT', "")
+        SendEmail("craighissett", 'TRAILER 1 FULL - PLEASE COLLECT', "")
         #print ('Trigger 10min delay')
         time.sleep(10)
         lcd_string(' TRAILER #2 Filling ',LCD_LINE_2)
@@ -27,7 +27,7 @@ def Email1(self):
         
 def Email2(self):
         lcd_string('  TRAILER #2 FULL   ',LCD_LINE_2)
-        SendEmail("craighissett@gmail.com", 'TRAILER 2 FULL - PLEASE COLLECT', "")
+        SendEmail("craighissett", 'TRAILER 2 FULL - PLEASE COLLECT', "")
         time.sleep(10)
         lcd_string(' TRAILER #1 Filling ',LCD_LINE_2)
         time.sleep(10)

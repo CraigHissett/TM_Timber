@@ -12,3 +12,7 @@ def GetUserEmail():
 def GetUserPW():
   userPW = "Insert user Email password here"
   return userPW
+
+def GetClientAdd():
+  clientemail = "Insert target email address here"
+  return clientemail

@@ -32,13 +32,27 @@ def Email2(self):
         lcd_string(' TRAILER #1 Filling ',LCD_LINE_2)
         time.sleep(10)
 
-GPIO.add_event_detect(18, GPIO.RISING, callback=Email1, bouncetime=300)
-GPIO.add_event_detect(16, GPIO.RISING, callback=Email2, bouncetime=300)
+def Notifier(channel):
+        if channel==18:
+                lcd_string('  TRAILER #1 FULL   ',LCD_LINE_2)
+                SendEmail("craighissett", 'TRAILER 1 FULL - PLEASE COLLECT', "")
+                lcd_string(' TRAILER #2 Filling ',LCD_LINE_3)
+        elif channel==16:
+                lcd_string('  TRAILER #2 FULL   ',LCD_LINE_2)
+                SendEmail("craighissett", 'TRAILER 1 FULL - PLEASE COLLECT', "")
+                lcd_string(' TRAILER #1 Filling ',LCD_LINE_3)
+
+GPIO.add_event_detect(18, GPIO.RISING)
+GPIO.add_event_detect(16, GPIO.RISING)
 
 while True:
         #print('Looping')
         lcd_string("LAN: " + get_ip_address('eth0'),LCD_LINE_4)
-        #lcd_string("WLAN: " + get_ip_address('wlan0'),LCD_LINE_4) 
-        time.sleep(5)
+        #lcd_string("WLAN: " + get_ip_address('wlan0'),LCD_LINE_4)
+        if GPIO.event_detected(18):
+                lcd_string('TRAILER #1 TRIGGERED',LCD_LINE_2)
+        if GPIO.event_detected(16):
+                lcd_string('TRAILER #2 TRIGGERED',LCD_LINE_2)
+        time.sleep(0.5)
 
 GPIO.cleanup()

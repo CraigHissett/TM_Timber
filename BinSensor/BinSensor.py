@@ -19,11 +19,11 @@ lcd_string("    Dust-O-Matic    ",LCD_LINE_1)
 def Notifier(channel):
         if channel==18:
                 lcd_string('  TRAILER #1 FULL   ',LCD_LINE_2)
-                SendEmail("craig", 'TRAILER 1 FULL - PLEASE COLLECT', "")
+                SendEmail('TRAILER 1 FULL - PLEASE COLLECT', "")
                 lcd_string(' TRAILER #2 Filling ',LCD_LINE_3)
         elif channel==16:
                 lcd_string('  TRAILER #2 FULL   ',LCD_LINE_2)
-                SendEmail("craig", 'TRAILER 2 FULL - PLEASE COLLECT', "")
+                SendEmail('TRAILER 2 FULL - PLEASE COLLECT', "")
                 lcd_string(' TRAILER #1 Filling ',LCD_LINE_3)
 
 GPIO.add_event_detect(18, GPIO.RISING)

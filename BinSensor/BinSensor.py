@@ -51,9 +51,9 @@ while True:
         #lcd_string("WLAN: " + get_ip_address('wlan0'),LCD_LINE_4)
         if GPIO.event_detected(18):
                 lcd_string('TRAILER #1 TRIGGERED',LCD_LINE_2)
-                Notifier()
+                Notifier(18)
         if GPIO.event_detected(16):
                 lcd_string('TRAILER #2 TRIGGERED',LCD_LINE_2)
-                Notifier()
+                Notifier(16)
         time.sleep(0.5)
 GPIO.cleanup()

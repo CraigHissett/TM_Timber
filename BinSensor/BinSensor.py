@@ -16,30 +16,14 @@ GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 lcd_string("    Dust-O-Matic    ",LCD_LINE_1)
 
 #This function will run when the button is triggered
-def Email1(self):
-        #print ('Button Triggered - Bin 1 full!')
-        lcd_string('  TRAILER #1 FULL   ',LCD_LINE_2)
-        SendEmail("craighissett", 'TRAILER 1 FULL - PLEASE COLLECT', "")
-        #print ('Trigger 10min delay')
-        time.sleep(10)
-        lcd_string(' TRAILER #2 Filling ',LCD_LINE_2)
-        time.sleep(10)
-        
-def Email2(self):
-        lcd_string('  TRAILER #2 FULL   ',LCD_LINE_2)
-        SendEmail("craighissett", 'TRAILER 2 FULL - PLEASE COLLECT', "")
-        time.sleep(10)
-        lcd_string(' TRAILER #1 Filling ',LCD_LINE_2)
-        time.sleep(10)
-        
 def Notifier(channel):
         if channel==18:
                 lcd_string('  TRAILER #1 FULL   ',LCD_LINE_2)
-                SendEmail("craighissett", 'TRAILER 1 FULL - PLEASE COLLECT', "")
+                SendEmail("craig", 'TRAILER 1 FULL - PLEASE COLLECT', "")
                 lcd_string(' TRAILER #2 Filling ',LCD_LINE_3)
         elif channel==16:
                 lcd_string('  TRAILER #2 FULL   ',LCD_LINE_2)
-                SendEmail("craighissett", 'TRAILER 1 FULL - PLEASE COLLECT', "")
+                SendEmail("craig", 'TRAILER 2 FULL - PLEASE COLLECT', "")
                 lcd_string(' TRAILER #1 Filling ',LCD_LINE_3)
 
 GPIO.add_event_detect(18, GPIO.RISING)

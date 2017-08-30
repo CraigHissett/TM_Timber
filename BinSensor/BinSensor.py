@@ -31,7 +31,7 @@ def Email2(self):
         time.sleep(10)
         lcd_string(' TRAILER #1 Filling ',LCD_LINE_2)
         time.sleep(10)
-
+        
 def Notifier(channel):
         if channel==18:
                 lcd_string('  TRAILER #1 FULL   ',LCD_LINE_2)
@@ -56,5 +56,4 @@ while True:
                 lcd_string('TRAILER #2 TRIGGERED',LCD_LINE_2)
                 Notifier()
         time.sleep(0.5)
-
 GPIO.cleanup()

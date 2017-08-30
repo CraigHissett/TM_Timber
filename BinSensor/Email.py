@@ -1,4 +1,4 @@
-def SendEmail(recipient, subject, body):
+def SendEmail(subject, body):
     import smtplib
     import sys
     #sys.path. insert (0, 'Add\\windows path alternative')
@@ -8,7 +8,6 @@ def SendEmail(recipient, subject, body):
     gmail_user = credentials.GetUserEmail()
     gmail_pwd = credentials.GetUserPW()
     FROM = credentials.GetUser()
-    #TO = recipient if type(recipient) is list else [recipient]
     TO = credentials.GetClientAdd()
     SUBJECT = subject
     TEXT = body

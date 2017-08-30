@@ -33,7 +33,7 @@ def Email2(self):
         time.sleep(10)
 
 GPIO.add_event_detect(18, GPIO.RISING, callback=Email1, bouncetime=2000)
-GPIO.add_event_detect(16, GPIO.RISING, callback=Email2, bouncetime=2000)
+#GPIO.add_event_detect(16, GPIO.RISING, callback=Email2, bouncetime=2000)
 
 while True:
         #print('Looping')

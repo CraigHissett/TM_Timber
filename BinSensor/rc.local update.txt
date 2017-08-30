@@ -1,0 +1,1 @@
+(sleep 10;python /home/pi/Desktop/execute_on_boot.py >/tmp/my_program_output)&

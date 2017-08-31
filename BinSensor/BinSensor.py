@@ -34,10 +34,15 @@ while True:
         lcd_string("LAN: " + get_ip_address('eth0'),LCD_LINE_4)
         #lcd_string("WLAN: " + get_ip_address('wlan0'),LCD_LINE_4)
         if GPIO.event_detected(18):
-                #lcd_string('TRAILER #1 TRIGGERED',LCD_LINE_2)
-                Notifier(18)
+                time.sleep(0.005) # debounce for 5mSec
+                # only show valid edges
+                if GPIO.input(18)==1:
+                        #lcd_string('TRAILER #1 TRIGGERED',LCD_LINE_2)
+                        Notifier(18)
         if GPIO.event_detected(16):
-                #lcd_string('TRAILER #2 TRIGGERED',LCD_LINE_2)
-                Notifier(16)
+                time.sleep(0.005)
+                if GPIO.input(16)==1:
+                        Notifier(16)
         time.sleep(0.5)
+        
 GPIO.cleanup()

@@ -7,8 +7,9 @@ def SendEmail(subject, body):
 
     gmail_user = credentials.GetUserEmail()
     gmail_pwd = credentials.GetUserPW()
-    FROM = str(credentials.GetUser())
-    TO = str(credentials.GetClientAdd())
+    FROM = credentials.GetUser()
+    recipient = credentials.GetClientAdd()
+    TO = recipient if type(recipient) is list else [recipient]
     SUBJECT = subject
     TEXT = body
 

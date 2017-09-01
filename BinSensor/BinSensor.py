@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import RPi.GPIO as GPIO
-import time
+import time, datetime
 from lcd import *
 from Email import *
 
 lcd_init ()
 GPIO.setmode(GPIO.BOARD)
+
+print('System start/restart - ', str(datetime.datetime.now()))
 
 #Switch for Bin 1 to be connected to pin 18 and 3.3v pin
 #Switch for Bin 2 to be connected to pin 16 and 3.3v pin
@@ -18,10 +20,12 @@ lcd_string("    Dust-O-Matic    ",LCD_LINE_1)
 #This function will run when the button is triggered
 def Notifier(channel):
         if channel==18:
+                print('Bin 1 Full - ', str(datetime.datetime.now()))
                 lcd_string('  TRAILER #1 FULL   ',LCD_LINE_2)
                 SendEmail('TRAILER 1 FULL - PLEASE COLLECT', "")
                 lcd_string(' TRAILER #2 Filling ',LCD_LINE_3)
         elif channel==16:
+                print('Bin 2 Full - ', str(datetime.datetime.now()))                
                 lcd_string('  TRAILER #2 FULL   ',LCD_LINE_2)
                 SendEmail('TRAILER 2 FULL - PLEASE COLLECT', "")
                 lcd_string(' TRAILER #1 Filling ',LCD_LINE_3)

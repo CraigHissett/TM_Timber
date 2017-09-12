@@ -4,6 +4,7 @@ import RPi.GPIO as GPIO
 import time, datetime
 from lcd import *
 from Email import *
+import server
 
 lcd_init ()
 GPIO.setmode(GPIO.BOARD)

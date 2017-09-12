@@ -6,6 +6,7 @@ import tornado.web
 import tornado.websocket
 import time
 import os, sys
+from Email import *
 
 from tornado.options import define, options
 #define("port", default=8000, help="run on the given port", type=int)
@@ -33,7 +34,7 @@ class IndexHandler(tornado.web.RequestHandler):
                     os.system('shutdown -r now')
             elif WebValue == 'Email':
                 print('Send Test Email')
-                return
+                SendEmail('Dustomatic - Test Email', "Triggered from Web GUI")
             else:
                 print('No matching Pi Command')
                 return

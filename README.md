@@ -8,3 +8,4 @@ Included Scripts:
 
 Pi user: Pi
 Pi pw: TM_Timber_Dusto
+GM pw: TM_Timber_Dusto_3Mail
